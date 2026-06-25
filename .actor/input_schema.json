@@ -1,0 +1,83 @@
+{
+    "title": "LinkedIn Hiring Posts Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "searchKeyword": {
+            "title": "Search Keyword",
+            "type": "string",
+            "description": "The primary keyword to search for in LinkedIn posts. This is combined with each job role to form search queries.",
+            "editor": "textfield",
+            "default": "Hiring",
+            "prefill": "Hiring",
+            "sectionCaption": "Search Configuration",
+            "sectionDescription": "Configure what kind of posts you want to find on LinkedIn."
+        },
+        "jobRoles": {
+            "title": "Job Roles",
+            "type": "array",
+            "description": "List of job roles/titles to search for. Each role generates a separate search combined with the search keyword. Example: Product Designer, UI/UX Designer, Frontend Developer",
+            "editor": "stringList",
+            "items": {
+                "type": "string"
+            },
+            "default": ["Product Designer"],
+            "prefill": ["Product Designer", "UI/UX Designer"]
+        },
+        "location": {
+            "title": "Location",
+            "type": "string",
+            "description": "Filter posts by location. Use a city, country, or region name (e.g., 'India', 'United States', 'San Francisco', 'London'). Leave empty for worldwide results.",
+            "editor": "textfield",
+            "default": "",
+            "sectionCaption": "Filters",
+            "sectionDescription": "Narrow down results by location and recency."
+        },
+        "datePosted": {
+            "title": "Date Posted",
+            "type": "string",
+            "description": "Filter posts by when they were published.",
+            "editor": "select",
+            "default": "pastWeek",
+            "prefill": "pastWeek",
+            "enum": ["past24h", "pastWeek", "pastMonth", "anyTime"],
+            "enumTitles": ["Past 24 hours", "Past week", "Past month", "Any time"]
+        },
+        "maxResults": {
+            "title": "Max Results",
+            "type": "integer",
+            "description": "Maximum number of posts to collect per job role. LinkedIn limits search results, so very high numbers may not yield more results.",
+            "editor": "number",
+            "default": 50,
+            "prefill": 50,
+            "minimum": 1,
+            "maximum": 500
+        },
+        "li_at": {
+            "title": "LinkedIn Session Cookie (li_at)",
+            "type": "string",
+            "description": "Your LinkedIn 'li_at' session cookie. To get it: 1) Log into LinkedIn in your browser, 2) Open DevTools (F12), 3) Go to Application > Cookies > linkedin.com, 4) Copy the value of the 'li_at' cookie.",
+            "editor": "textfield",
+            "isSecret": true,
+            "sectionCaption": "Authentication",
+            "sectionDescription": "LinkedIn requires authentication to access post search results. Provide your session cookie below."
+        },
+        "proxyConfig": {
+            "title": "Proxy Configuration",
+            "type": "object",
+            "description": "Select proxies to use. Residential proxies are strongly recommended for LinkedIn to avoid blocks.",
+            "editor": "proxy",
+            "default": {
+                "useApifyProxy": true,
+                "apifyProxyGroups": ["RESIDENTIAL"]
+            },
+            "prefill": {
+                "useApifyProxy": true,
+                "apifyProxyGroups": ["RESIDENTIAL"]
+            },
+            "sectionCaption": "Proxy & Performance",
+            "sectionDescription": "Configure proxy and performance settings."
+        }
+    },
+    "required": ["searchKeyword", "jobRoles", "li_at"]
+}

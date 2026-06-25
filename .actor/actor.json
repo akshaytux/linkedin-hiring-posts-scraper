@@ -1,0 +1,9 @@
+{
+    "actorSpecification": 1,
+    "name": "linkedin-hiring-posts-scraper",
+    "title": "LinkedIn Hiring Posts Scraper",
+    "description": "Scrapes LinkedIn for hiring-related posts filtered by job roles, location, and date posted. Extracts post content, author details, and engagement metrics.",
+    "version": "1.0.0",
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile"
+}

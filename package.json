@@ -1,0 +1,20 @@
+{
+    "name": "linkedin-hiring-posts-scraper",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Apify Actor that scrapes LinkedIn for hiring posts filtered by job roles, location, and recency.",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "apify": "^3.1.0",
+        "crawlee": "^3.5.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "node src/main.js",
+        "test": "echo \"No tests configured\" && exit 0"
+    },
+    "author": "",
+    "license": "ISC"
+}
